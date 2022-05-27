@@ -14,11 +14,11 @@ class Post(models.Model):
 
 #class Users(User.AbstractBaseUser):
     #                              V   "_" ?????
-    #first_name =  models.CharField(_("first name"), max_length=30)
-    #last_name =  models.CharField(_("last name"), max_length=30)
-    #email = models.EmailField(verbose_name=_("email address"), max_length=255, unique=True, null=True, blank=True)
-    #isstaff =  models.BooleanField(_("staff status"), default=False, help_text=_("Designates whether the user can log into this admin site."))
-    #isactive =  models.BooleanField(_("active"), default=True, help_text=_("is active"))
+    first_name =  models.CharField(_("first name"), max_length=30)
+    last_name =  models.CharField(_("last name"), max_length=30)
+    email = models.EmailField(verbose_name=_("email address"), max_length=255, unique=True, null=True, blank=True)
+    isstaff =  models.BooleanField(_("staff status"), default=False, help_text=_("Designates whether the user can log into this admin site."))
+    isactive =  models.BooleanField(_("active"), default=True, help_text=_("is active"))
 
 
 class Company():
