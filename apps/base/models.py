@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, Group as DjangoGroup
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
 class Post(models.Model):
@@ -12,7 +12,7 @@ class Post(models.Model):
         return self.title
 
 
-#class Users(User.AbstractBaseUser):
+class User(AbstractBaseUser):
     #                              V   "_" ?????
     first_name =  models.CharField(_("first name"), max_length=30)
     last_name =  models.CharField(_("last name"), max_length=30)
