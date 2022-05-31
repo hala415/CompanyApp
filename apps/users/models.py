@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, Group as DjangoGroup
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, Group as DjangoGroup
 from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
@@ -19,8 +19,3 @@ class User(AbstractBaseUser):
     email = models.EmailField(verbose_name=_("email address"), max_length=255, unique=True, null=True, blank=True)
     isstaff =  models.BooleanField(_("staff status"), default=False, help_text=_("Designates whether the user can log into this admin site."))
     isactive =  models.BooleanField(_("active"), default=True, help_text=_("is active"))
-
-
-class Company():
-    company_name = models.CharField(_("company name"), max_length=50)
- 
