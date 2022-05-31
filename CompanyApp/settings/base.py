@@ -49,6 +49,7 @@ PREREQ_APPS = [
 PROJECT_APPS = [
     'users',
     'companies',
+    'crispy_forms',
 ]
 
 
