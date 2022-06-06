@@ -1,8 +1,14 @@
+from pyexpat import model
+from tkinter import CASCADE
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager , Group as DjangoGroup
 from django.utils.translation import gettext_lazy as _
-from rest_framework.authtoken.models import Token
+from companies.models import Company
+#from rest_framework.authtoken.models import Token
+
+
+
 # Create your models here.
 
 #class Post(models.Model):
@@ -27,14 +33,21 @@ class UserManager(BaseUserManager):
 		extra_fields.setdefault("is_superuser", False)
 		return self._create_user(email, password, **extra_fields)
 
-	def create_application_user_with_token(self, **extra_fields):
-		user = self.model(**extra_fields)
-		user.save(using=self._db)
+
+
+
+
+	#def create_application_user_with_token(self, **extra_fields):
+	#	user = self.model(**extra_fields)
+	#	user.save(using=self._db)
 
 		# Create token
-		token = Token.objects.create(user=user)
+	#	token = Token.objects.create(user=user)
 
-		return (token, user)
+	#	return (token, user)
+
+
+
 
 	def create_superuser(self, email, password, **extra_fields):
 		extra_fields.setdefault("is_staff", True)
@@ -55,10 +68,25 @@ class User(AbstractBaseUser, PermissionsMixin):
 	email = models.EmailField(verbose_name=_("email address"), max_length=255, unique=True, null=True, blank=True)
 	is_staff =  models.BooleanField(_("staff status"), default=False, help_text=_("Designates whether the user can log into this admin site."))
 	is_active =  models.BooleanField(_("active"), default=True, help_text=_("is active"))
+	company = models.ForeignKey(Company, default=None, on_delete=callable)
+
+	#company_employee = models.ForeignKey(Company,on_delete=models.CASCADE,default=None)
+
 	USERNAME_FIELD = "email"
 	RQUIRED_FIELDS = []
 	objects = UserManager()
 	
+
 	class Meta:
 		verbose_name = _("User")
 		verbose_name_plural = _("Users")
+
+
+	def __str__(self):
+		return self.first_name
+
+	def __str__(self):
+		return self.last_name
+
+	def __str__(self):
+		return self.email

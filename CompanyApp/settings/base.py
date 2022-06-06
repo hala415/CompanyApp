@@ -37,24 +37,24 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-PREREQ_APPS = [
+
+
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
 
-PROJECT_APPS = [
+    #User added apps V 
+    'CompanyApp',
     'users',
     'companies',
     'crispy_forms',
+    'rest_framework',
+    #'filters',
 ]
-
-
-
-INSTALLED_APPS = PROJECT_APPS + PREREQ_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

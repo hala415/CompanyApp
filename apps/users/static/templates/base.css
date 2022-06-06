@@ -11,4 +11,11 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: 3e485c;
+    color: white;
+}
+
+brand-title{
+    font-size: 1.5rem;
+    margin: 0.5rem;
 }

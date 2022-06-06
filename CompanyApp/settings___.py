@@ -14,7 +14,7 @@ from pathlib import Path
 import os, sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-PACKAGE_ROOT = os.path.abspath(os.path.join(os.path.dirname(_file_), os.pardir))
+PACKAGE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 BASE_DIR = os.path.dirname(PACKAGE_ROOT)
 
 sys.path.append(BASE_DIR + '/apps')

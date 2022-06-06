@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm 
 from .forms import UserRegisterForm
+#from .filter import UserFilter
 # Create your views here.
 
 def home(request):
@@ -11,6 +12,11 @@ def home(request):
 def about(request):
     return render(request, 'users/about.html')
 
+def style_base(request):
+    return render(request, 'base.html')
+
+def login(request):
+    return render(request, 'users/login.html')
 
 def register(request):
     if request.method == 'POST':
@@ -24,4 +30,3 @@ def register(request):
         form = UserRegisterForm()
     
     return render(request, 'users/register.html', {'form': form})
-
