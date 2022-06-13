@@ -68,7 +68,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 	email = models.EmailField(verbose_name=_("email address"), max_length=255, unique=True, null=True, blank=True)
 	is_staff =  models.BooleanField(_("staff status"), default=False, help_text=_("Designates whether the user can log into this admin site."))
 	is_active =  models.BooleanField(_("active"), default=True, help_text=_("is active"))
-	#company = models.ForeignKey(Company, default=None, null=True, on_delete=models.SET_NULL)
+	company = models.ForeignKey(Company, default=None, null=True, on_delete=models.SET_NULL)
 
 	#company_employee = models.ForeignKey(Company,on_delete=models.CASCADE,default=None)
 
